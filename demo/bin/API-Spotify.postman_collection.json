@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "93632925-9fc2-4758-aa68-518231dbc521",
+		"name": "API-Spotify",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://accounts.spotify.com/api/token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "bb2a7fa17377448bb4f6a50f91582c52",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "09ece6904ca4491b95df99a58e90c704",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "AQDMWrAiwRIrr3fjP-txlu97gFLdzDb9lXfpS-VmkqmPA80pZ_KxWMdMsbuGIR4Vta-kPbiRkTOX70M02_TBofkNWPDV2ucKGU6dnGhcsW0Fk1gpzY7lpHaXjPN08jtoyvVR9KOlBBdCIOwBdsG6-ireo7bRVh8DPzDpR1te2WKOnGPQAczFUHmZ-coInimxQKHUL8MbzfRuYg",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8080/login/redirect",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://accounts.spotify.com/api/token",
+					"protocol": "https",
+					"host": [
+						"accounts",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"api",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/playlist?id=3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/playlist?id=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"playlist"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/add?id=6&playlistId=5q2Wu0NmzdLy5Uryxa5zKc",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"uris\": [\n        \"spotify:track:3FVX7AMj1bC1R2rj4hZfXw\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/add?id=6&playlistId=5q2Wu0NmzdLy5Uryxa5zKc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"add"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6"
+						},
+						{
+							"key": "playlistId",
+							"value": "5q2Wu0NmzdLy5Uryxa5zKc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/remove?id=9&playlistId=5q2Wu0NmzdLy5Uryxa5zKc",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tracks\": [\n        {\n            \"uri\": \"spotify:track:3FVX7AMj1bC1R2rj4hZfXw\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/remove?id=9&playlistId=5q2Wu0NmzdLy5Uryxa5zKc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"remove"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "9"
+						},
+						{
+							"key": "playlistId",
+							"value": "5q2Wu0NmzdLy5Uryxa5zKc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/playlist/5q2Wu0NmzdLy5Uryxa5zKc?id=11",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/playlist/5q2Wu0NmzdLy5Uryxa5zKc?id=11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"playlist",
+						"5q2Wu0NmzdLy5Uryxa5zKc"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "11"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
